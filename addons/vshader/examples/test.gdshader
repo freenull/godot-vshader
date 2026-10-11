@@ -1,5 +1,5 @@
-// @variant DEBUG OFF ON
-// @variant FOOBAR OFF ON
+// @variant DEBUG  enum {OFF, ON}
+// @variant FOOBAR enum {OFF, ON}
 
 shader_type spatial;
 

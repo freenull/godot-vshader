@@ -26,7 +26,7 @@ var variant_shader: VariantShader:
 
 func _update_shader():
 	if variant_shader == null: return
-	shader = variant_shader.try_compile(_variant_params, true)
+	shader = variant_shader.try_get_shader(_variant_params, true)
 	notify_property_list_changed()
 
 func _validate_property(property: Dictionary) -> void:
@@ -50,13 +50,13 @@ func set_shader_variant(param: StringName, value: String) -> void:
 func _get_property_list() -> Array[Dictionary]:
 	var props := []
 	
-	if variant_shader == null:
+	if variant_shader == null or variant_shader.cache == null:
 		return props
-		
-	for variant in variant_shader.variants():
+	
+	for variant in variant_shader.cache.variants:
 		var hint_string := ""
 		var first := true
-		for option in variant.values:
+		for option in variant.options():
 			if variant_shader.is_excluded(variant, option):
 				continue
 			if not first:
@@ -71,9 +71,19 @@ func _get_property_list() -> Array[Dictionary]:
 			"hint_string": hint_string
 		})
 	
+	props.append({
+		"name": "active_shader",
+		"type": TYPE_OBJECT,
+		"hint": PROPERTY_HINT_RESOURCE_TYPE,
+		"hint_string": "Shader",
+		"usage": PROPERTY_USAGE_EDITOR | PROPERTY_USAGE_READ_ONLY
+	})
+	
 	return props
 
 func _get(property: StringName) -> Variant:
+	if property == "active_shader":
+		return shader
 	if not property.begins_with("shader_variants/"):
 		return null
 	var variant_key := property.substr("shader_variants/".length()).to_upper()
@@ -85,7 +95,7 @@ func _get(property: StringName) -> Variant:
 	if variant == null:
 		return null
 	
-	return variant.get_key(0)
+	return variant.default_option()
 
 func _set(property: StringName, value: Variant) -> bool:
 	if not property.begins_with("shader_variants/"):

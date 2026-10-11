@@ -1,0 +1,364 @@
+[gd_resource type="Resource" script_class="VariantShader" format=3 uid="uid://c6vwo367wy7b2"]
+
+[ext_resource type="Shader" uid="uid://fk3afxupc44t" path="res://addons/vshader/examples/modular.gdshader" id="1_hu0kn"]
+[ext_resource type="Script" uid="uid://crmgy71iymdqh" path="res://addons/vshader/src/generated_cache.gd" id="2_dpryt"]
+[ext_resource type="Script" uid="uid://cn06eydg3x8bk" path="res://addons/vshader/src/token.gd" id="3_psngc"]
+[ext_resource type="Script" uid="uid://b48evk85lk8e" path="res://addons/vshader/src/region.gd" id="4_qf2ua"]
+[ext_resource type="Script" uid="uid://c515w25wklm4j" path="res://addons/vshader/src/variant/variant.gd" id="5_n8to3"]
+[ext_resource type="Script" uid="uid://c7a3cyar35402" path="res://addons/vshader/src/variant/inc.gd" id="6_17dxa"]
+[ext_resource type="Script" uid="uid://bjqpc4djr1wam" path="res://addons/vshader/src/variant_shader_exclusions.gd" id="7_k50d2"]
+[ext_resource type="Script" uid="uid://dvo7foqqvhujy" path="res://addons/vshader/src/variant_shader.gd" id="8_07vq5"]
+[ext_resource type="Script" uid="uid://ch2gf1howlgmo" path="res://addons/vshader/src/extension.gd" id="8_dpryt"]
+
+[sub_resource type="Shader" id="Shader_dpryt"]
+code = "shader_type spatial;
+
+
+#include \"res://addons/vshader/examples/modular/displace_none.gdshaderinc\" 
+
+void vertex() {
+ VERTEX = displace_vertex(VERTEX);
+}
+"
+
+[sub_resource type="Shader" id="Shader_psngc"]
+code = "shader_type spatial;
+
+
+#include \"res://addons/vshader/examples/modular/displace_down.gdshaderinc\" 
+
+void vertex() {
+ VERTEX = displace_vertex(VERTEX);
+}
+"
+
+[sub_resource type="Shader" id="Shader_qf2ua"]
+code = "shader_type spatial;
+
+
+#include \"res://addons/vshader/examples/modular/displace_up.gdshaderinc\" 
+
+void vertex() {
+ VERTEX = displace_vertex(VERTEX);
+}
+"
+
+[sub_resource type="Shader" id="Shader_n8to3"]
+code = "shader_type spatial;
+
+
+#include \"res://addons/vshader/examples/modular_extra/displace_down_double.gdshaderinc\" 
+
+void vertex() {
+ VERTEX = displace_vertex(VERTEX);
+}
+"
+
+[sub_resource type="Shader" id="Shader_17dxa"]
+code = "shader_type spatial;
+
+
+#include \"res://addons/vshader/examples/modular_extra/displace_up_double.gdshaderinc\" 
+
+void vertex() {
+ VERTEX = displace_vertex(VERTEX);
+}
+"
+
+[sub_resource type="Resource" id="Resource_k50d2"]
+script = ExtResource("4_qf2ua")
+start_row = 1
+end_row = 1
+start_col = 1
+end_col = 11
+
+[sub_resource type="Resource" id="Resource_07vq5"]
+script = ExtResource("3_psngc")
+type = 5
+value = "shader_type"
+region = SubResource("Resource_k50d2")
+
+[sub_resource type="Resource" id="Resource_id6ci"]
+script = ExtResource("4_qf2ua")
+start_row = 1
+end_row = 1
+start_col = 12
+end_col = 12
+
+[sub_resource type="Resource" id="Resource_e008q"]
+script = ExtResource("3_psngc")
+type = 1
+region = SubResource("Resource_id6ci")
+
+[sub_resource type="Resource" id="Resource_6m7tt"]
+script = ExtResource("4_qf2ua")
+start_row = 1
+end_row = 1
+start_col = 13
+end_col = 19
+
+[sub_resource type="Resource" id="Resource_qmk8p"]
+script = ExtResource("3_psngc")
+type = 5
+value = "spatial"
+region = SubResource("Resource_6m7tt")
+
+[sub_resource type="Resource" id="Resource_nuiij"]
+script = ExtResource("4_qf2ua")
+start_row = 1
+end_row = 1
+start_col = 20
+end_col = 20
+
+[sub_resource type="Resource" id="Resource_8ggt2"]
+script = ExtResource("3_psngc")
+type = 14
+value = ";"
+region = SubResource("Resource_nuiij")
+
+[sub_resource type="Resource" id="Resource_cbhuo"]
+script = ExtResource("4_qf2ua")
+start_row = 10
+end_row = 10
+
+[sub_resource type="Resource" id="Resource_8qa2m"]
+script = ExtResource("3_psngc")
+type = 2
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_18hjb"]
+script = ExtResource("3_psngc")
+type = 2
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_6eh5y"]
+script = ExtResource("3_psngc")
+type = 2
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_gx06u"]
+script = ExtResource("3_psngc")
+type = 12
+value = "include"
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_wfite"]
+script = ExtResource("3_psngc")
+type = 4
+value = "res://addons/vshader/examples/modular/displace_none.gdshaderinc"
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_am8vn"]
+script = ExtResource("3_psngc")
+type = 13
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_dd4yr"]
+script = ExtResource("3_psngc")
+type = 2
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_ibotg"]
+script = ExtResource("4_qf2ua")
+start_row = 7
+end_row = 7
+start_col = 1
+end_col = 4
+
+[sub_resource type="Resource" id="Resource_soewc"]
+script = ExtResource("3_psngc")
+type = 5
+value = "void"
+region = SubResource("Resource_ibotg")
+
+[sub_resource type="Resource" id="Resource_112wi"]
+script = ExtResource("4_qf2ua")
+start_row = 7
+end_row = 7
+start_col = 5
+end_col = 5
+
+[sub_resource type="Resource" id="Resource_dltci"]
+script = ExtResource("3_psngc")
+type = 1
+region = SubResource("Resource_112wi")
+
+[sub_resource type="Resource" id="Resource_1lrtb"]
+script = ExtResource("4_qf2ua")
+start_row = 7
+end_row = 7
+start_col = 6
+end_col = 11
+
+[sub_resource type="Resource" id="Resource_ijthq"]
+script = ExtResource("3_psngc")
+type = 5
+value = "vertex"
+region = SubResource("Resource_1lrtb")
+
+[sub_resource type="Resource" id="Resource_8gnmg"]
+script = ExtResource("4_qf2ua")
+start_row = 7
+end_row = 7
+start_col = 12
+end_col = 13
+
+[sub_resource type="Resource" id="Resource_vjfj7"]
+script = ExtResource("3_psngc")
+type = 14
+value = "()"
+region = SubResource("Resource_8gnmg")
+
+[sub_resource type="Resource" id="Resource_cellx"]
+script = ExtResource("4_qf2ua")
+start_row = 7
+end_row = 7
+start_col = 14
+end_col = 14
+
+[sub_resource type="Resource" id="Resource_8l7i4"]
+script = ExtResource("3_psngc")
+type = 1
+region = SubResource("Resource_cellx")
+
+[sub_resource type="Resource" id="Resource_h61gt"]
+script = ExtResource("3_psngc")
+type = 6
+value = "{"
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_ps1qu"]
+script = ExtResource("3_psngc")
+type = 2
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_rqpfi"]
+script = ExtResource("4_qf2ua")
+start_row = 8
+end_row = 8
+start_col = 1
+end_col = 4
+
+[sub_resource type="Resource" id="Resource_d22bk"]
+script = ExtResource("3_psngc")
+type = 1
+region = SubResource("Resource_rqpfi")
+
+[sub_resource type="Resource" id="Resource_duacb"]
+script = ExtResource("4_qf2ua")
+start_row = 8
+end_row = 8
+start_col = 5
+end_col = 10
+
+[sub_resource type="Resource" id="Resource_sadgj"]
+script = ExtResource("3_psngc")
+type = 5
+value = "VERTEX"
+region = SubResource("Resource_duacb")
+
+[sub_resource type="Resource" id="Resource_0djeh"]
+script = ExtResource("4_qf2ua")
+start_row = 8
+end_row = 8
+start_col = 11
+end_col = 11
+
+[sub_resource type="Resource" id="Resource_6m47r"]
+script = ExtResource("3_psngc")
+type = 1
+region = SubResource("Resource_0djeh")
+
+[sub_resource type="Resource" id="Resource_u31e6"]
+script = ExtResource("3_psngc")
+type = 9
+value = "="
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_0vduu"]
+script = ExtResource("4_qf2ua")
+start_row = 8
+end_row = 8
+start_col = 13
+end_col = 13
+
+[sub_resource type="Resource" id="Resource_bgg4h"]
+script = ExtResource("3_psngc")
+type = 1
+region = SubResource("Resource_0vduu")
+
+[sub_resource type="Resource" id="Resource_ompdo"]
+script = ExtResource("4_qf2ua")
+start_row = 8
+end_row = 8
+start_col = 14
+end_col = 28
+
+[sub_resource type="Resource" id="Resource_y0425"]
+script = ExtResource("3_psngc")
+type = 5
+value = "displace_vertex"
+region = SubResource("Resource_ompdo")
+
+[sub_resource type="Resource" id="Resource_jk81p"]
+script = ExtResource("4_qf2ua")
+start_row = 8
+end_row = 8
+start_col = 29
+end_col = 37
+
+[sub_resource type="Resource" id="Resource_vtn6o"]
+script = ExtResource("3_psngc")
+type = 14
+value = "(VERTEX);"
+region = SubResource("Resource_jk81p")
+
+[sub_resource type="Resource" id="Resource_p1uce"]
+script = ExtResource("3_psngc")
+type = 2
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_hiwlc"]
+script = ExtResource("3_psngc")
+type = 7
+value = "}"
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_rxia5"]
+script = ExtResource("3_psngc")
+type = 2
+region = SubResource("Resource_cbhuo")
+
+[sub_resource type="Resource" id="Resource_uun70"]
+script = ExtResource("6_17dxa")
+inc_paths = Array[String](["res://addons/vshader/examples/modular/displace_down.gdshaderinc", "res://addons/vshader/examples/modular/displace_up.gdshaderinc", "res://addons/vshader/examples/modular_extra/displace_down_double.gdshaderinc", "res://addons/vshader/examples/modular_extra/displace_up_double.gdshaderinc"])
+base_dir = "res://addons/vshader/examples"
+stub_path = "res://addons/vshader/examples/modular/displace_none.gdshaderinc"
+name = "FILE"
+
+[sub_resource type="Resource" id="Resource_hh56c"]
+script = ExtResource("2_dpryt")
+tokens = Array[ExtResource("3_psngc")]([SubResource("Resource_07vq5"), SubResource("Resource_e008q"), SubResource("Resource_qmk8p"), SubResource("Resource_8ggt2"), SubResource("Resource_8qa2m"), SubResource("Resource_18hjb"), SubResource("Resource_6eh5y"), SubResource("Resource_gx06u"), SubResource("Resource_wfite"), SubResource("Resource_am8vn"), SubResource("Resource_dd4yr"), SubResource("Resource_soewc"), SubResource("Resource_dltci"), SubResource("Resource_ijthq"), SubResource("Resource_vjfj7"), SubResource("Resource_8l7i4"), SubResource("Resource_h61gt"), SubResource("Resource_ps1qu"), SubResource("Resource_d22bk"), SubResource("Resource_sadgj"), SubResource("Resource_6m47r"), SubResource("Resource_u31e6"), SubResource("Resource_bgg4h"), SubResource("Resource_y0425"), SubResource("Resource_vtn6o"), SubResource("Resource_p1uce"), SubResource("Resource_hiwlc"), SubResource("Resource_rxia5")])
+variants = Array[ExtResource("5_n8to3")]([SubResource("Resource_uun70")])
+permutation_count = 5
+_permutation_cache = Dictionary[String, Shader]({
+"FILE=<stub>": SubResource("Shader_dpryt"),
+"FILE=res://addons/vshader/examples/modular/displace_down.gdshaderinc": SubResource("Shader_psngc"),
+"FILE=res://addons/vshader/examples/modular/displace_up.gdshaderinc": SubResource("Shader_qf2ua"),
+"FILE=res://addons/vshader/examples/modular_extra/displace_down_double.gdshaderinc": SubResource("Shader_n8to3"),
+"FILE=res://addons/vshader/examples/modular_extra/displace_up_double.gdshaderinc": SubResource("Shader_17dxa")
+})
+
+[sub_resource type="Resource" id="Resource_piygx"]
+script = ExtResource("8_dpryt")
+entries = Array[String](["res://addons/vshader/examples/modular_extra/displace_down_double.gdshaderinc", "res://addons/vshader/examples/modular_extra/displace_up_double.gdshaderinc"])
+metadata/_custom_type_script = "uid://ch2gf1howlgmo"
+
+[resource]
+script = ExtResource("8_07vq5")
+_source = ExtResource("1_hu0kn")
+source = ExtResource("1_hu0kn")
+extensions = Dictionary[String, ExtResource("8_dpryt")]({
+"FILE": SubResource("Resource_piygx")
+})
+cache = SubResource("Resource_hh56c")
